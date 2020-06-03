@@ -1,0 +1,125 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+typedef struct {
+
+int elemento[101];
+
+int elementos;
+
+}pilha;
+
+int empilha (int valor, pilha *p);  
+
+int desempilha (pilha *p);  
+
+void imprimepilha(pilha *p);  
+
+int main( ) {
+
+pilha pilha1;  
+
+pilha pilha2;  
+
+pilha1.elementos = pilha2.elementos = 0;
+
+empilha(1,&pilha1);  
+
+empilha(8,&pilha1);
+
+empilha(1,&pilha1);
+
+empilha(5,&pilha1);
+
+empilha(4,&pilha1);
+
+empilha(1,&pilha1);
+
+empilha(4,&pilha1);
+
+empilha(5,&pilha1);
+
+imprimepilha(&pilha1);    
+
+empilha(desempilha(&pilha1),&pilha2);
+
+empilha(desempilha(&pilha1),&pilha2);  
+
+empilha(desempilha(&pilha1),&pilha2);  
+
+empilha(desempilha(&pilha1),&pilha2);  
+
+empilha(desempilha(&pilha1),&pilha2);  
+
+empilha(desempilha(&pilha1),&pilha2);
+
+empilha(desempilha(&pilha1),&pilha2);  
+
+empilha(desempilha(&pilha1),&pilha2);
+
+imprimepilha(&pilha2);
+
+return 0;
+
+}
+
+int empilha(int valor,pilha *p) {  
+
+if (p->elementos==100)
+
+{
+
+printf("Tamanho máximo da pilha excedido.\n");  
+
+return 1;
+
+}
+
+p->elemento[p->elementos]=valor;  
+
+p->elementos++;
+
+return 0; 
+}
+
+int desempilha (pilha *p) {
+
+if (p->elementos==0)
+
+{
+
+printf("Nao ha elementos na pilha.\n");  
+
+return -1;  
+
+}
+
+p->elementos--;
+
+return p->elemento[p->elementos];
+
+}
+
+void imprimepilha (pilha *p)
+
+{
+
+if (p->elementos == 0)  
+
+{
+
+printf("Nao ha elementos na pilha.\n");  
+
+return;
+
+}
+
+for (int i=0;i<p->elementos;i++);
+
+printf ("%d", p->elementos[i]);  
+
+printf("\n");
+return;
+
+}
